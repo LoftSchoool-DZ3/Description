@@ -5,5 +5,5 @@
 ```sh
 $ git clone 
 $ npm install
-$ run gulp
+$ gulp
 ```
