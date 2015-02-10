@@ -1,0 +1,125 @@
+.img {
+  display: inline-block;
+  background: url('spritebox-sprite.png') no-repeat center center transparent;
+}
+
+.img.like {
+  background-position: -0px -0px;
+  height: 32px;
+  width: 26px;
+}
+
+.img.like-hover {
+  background-position: -26px -0px;
+  height: 32px;
+  width: 26px;
+}
+
+.img.padding-vertic {
+  background-position: -52px -0px;
+  height: 30px;
+  width: 11px;
+}
+
+.img.fb {
+  background-position: -0px -32px;
+  height: 27px;
+  width: 15px;
+}
+
+.img.fb-hover {
+  background-position: -15px -32px;
+  height: 27px;
+  width: 15px;
+}
+
+.img.tw-hover {
+  background-position: -30px -32px;
+  height: 22px;
+  width: 28px;
+}
+
+.img.tw {
+  background-position: -63px -0px;
+  height: 22px;
+  width: 28px;
+}
+
+.img.one-on {
+  background-position: -63px -22px;
+  height: 19px;
+  width: 19px;
+}
+
+.img.tile-on {
+  background-position: -0px -59px;
+  height: 19px;
+  width: 19px;
+}
+
+.img.tile-off {
+  background-position: -19px -59px;
+  height: 19px;
+  width: 19px;
+}
+
+.img.one-off {
+  background-position: -38px -59px;
+  height: 19px;
+  width: 19px;
+}
+
+.img.vk {
+  background-position: -57px -59px;
+  height: 18px;
+  width: 32px;
+}
+
+.img.vk-hover {
+  background-position: -91px -0px;
+  height: 18px;
+  width: 32px;
+}
+
+.img.load {
+  background-position: -91px -18px;
+  height: 16px;
+  width: 21px;
+}
+
+.img.triangle {
+  background-position: -91px -34px;
+  height: 11px;
+  width: 19px;
+}
+
+.img.padding-horiz {
+  background-position: -91px -45px;
+  height: 9px;
+  width: 29px;
+}
+
+.img.arrow-up {
+  background-position: -110px -34px;
+  height: 8px;
+  width: 13px;
+}
+
+.img.arrow-down {
+  background-position: -91px -54px;
+  height: 8px;
+  width: 13px;
+}
+
+.img.arrow-up-hover {
+  background-position: -104px -54px;
+  height: 8px;
+  width: 13px;
+}
+
+.img.arrow-down-hover {
+  background-position: -91px -62px;
+  height: 8px;
+  width: 13px;
+}
+
