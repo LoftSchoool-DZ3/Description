@@ -1,6 +1,6 @@
 .img {
   display: inline-block;
-  background: url('spritebox-sprite.png') no-repeat center center transparent;
+  background: url('../img/spritebox.png') no-repeat center center transparent;
 }
 
 .img.like {
