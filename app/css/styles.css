@@ -16,8 +16,6 @@ body {
     width: 100%;
     height: 100%;
     min-height: 670px;
-
-    font-family: sans-serif;
 }
 
 .wrapper {
@@ -36,14 +34,14 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-
+    
     width: 960px;
     height: 670px;
     margin: auto;
 
-    font-size: 0;
 
-    background: rgba(46,54,65,.64);
+    background: rgba(67,70,77,.64);
+    
 }
 
 .main,
@@ -61,23 +59,24 @@ body {
     width: 701px;
     height: 100%;
 
-    font-size: 18px;
+
+    font-size: 18px;    
+
 }
 
 .settings {
     width: 259px;
     height: 100%;
-
+    
     background-color: #f1f1f5;
 }
 
 .set {
-    position: relative;
-
     width: 100%;
-
+    position: relative;
     font-size: 14px;
 }
+
 
 h2.set {
     height: 73px;
@@ -87,6 +86,12 @@ h2.set {
     color: #2e3641;
     font-weight: normal;
 }
+
+
+h2.set {
+    height: 73px;
+ }
+
 
 .load-imgs {
     height: 171px;
@@ -130,17 +135,14 @@ h2.set {
     height: 70px;
     margin-top: -70px;
 }
-
 .slider {
+    margin: 30px auto 0;
+    background: #dbe1e8;
     width: 218px;
     height: 3px;
-    margin: 30px auto 0;
-
-    background: #dbe1e8;
 }
 
 .input-wrapper-file {
-    position: relative;
 
     width: 219px;
     height: 27px;
@@ -153,6 +155,9 @@ h2.set {
     color: #9eb2c0;
     border: 1px solid #9eb2c0;
     background: #f1f1f5;
+    padding-right: 39px;
+    border-radius: 4px;
+    position: relative;
 }
 
 .input-wrapper-file > span {
@@ -178,12 +183,15 @@ h2.set {
     cursor: pointer;
 
     background-color: #f97e76;
+    border-top-right-radius: 4px;
+    overflow: hidden;
+    border-bottom-right-radius: 4px;
 }
 
 .img.load {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 5px;
+    right: 9px;
 }
 
 .input-wrapper-file input {

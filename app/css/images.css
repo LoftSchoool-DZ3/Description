@@ -112,13 +112,13 @@
   width: 13px;
 }
 
-.img.arrow-up-hover {
+.img.arrow-up:hover {
   background-position: -104px -54px;
   height: 8px;
   width: 13px;
 }
 
-.img.arrow-down-hover {
+.img.arrow-down:hover {
   background-position: -91px -62px;
   height: 8px;
   width: 13px;
