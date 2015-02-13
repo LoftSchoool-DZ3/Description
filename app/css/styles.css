@@ -81,6 +81,11 @@ body {
 
 h2.set {
     height: 73px;
+    font-family: RobotoLight, sans-serif;
+    font-size: 26px;
+    line-height: 100%;
+    color: #2e3641;
+    font-weight: normal;
 }
 
 .load-imgs {
@@ -254,5 +259,65 @@ h2.set {
 
 #radio-tile,
 #radio-one {
-	display: none;
+    display: none;
+}
+
+h1 {
+    font-family: SegoeUILight, sans-serif;
+    font-size: 36px;
+    line-height: 100%;
+    color: white;
+    font-weight: normal;
+}
+
+body {
+    background: url("../img/bg.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.btn {
+    color: #f1f1f5;
+    font-family: RobotoMedium, sans-serif;
+    font-size: 18px;
+    line-height: 100%;
+    width: 99px;
+    height: 42px;
+    border: 0;
+    padding: 0;
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+}
+
+#submit {
+    background-color: #f97e76;
+}
+
+#reset {
+    background-color: #c1cfd9;
+}
+
+.tile {
+    background-position: -19px -59px;
+    height: 19px;
+    width: 19px;
+}
+
+.one {
+    background-position: -38px -59px;
+    height: 19px;
+    width: 19px;
+}
+
+.tile:hover,
+#radio-tile:checked ~ .tile {
+    background-position: -0px -59px;
+    height: 19px;
+    width: 19px;
+}
+
+.one:hover,
+#radio-one:checked ~ .one {
+    background-position: -63px -22px;
+    height: 19px;
+    width: 19px;
 }

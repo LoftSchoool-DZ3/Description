@@ -13,6 +13,7 @@
 	<!-- endbuild -->
 	
 	<!-- build:css css/styles.css -->
+	<link rel="stylesheet" type="text/css" href="css/fonts.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/images.css">
     <!-- endbuild -->
@@ -49,9 +50,9 @@
 					<h3>Положение</h3>
 					
 					<input type="radio" id="radio-tile" name="radio" value="tile">
-					<label for="radio-tile" class="tile">замостить</label>
+					<label for="radio-tile" class="tile img">замостить</label>
 					<input type="radio" id="radio-one" name="radio" value="one" checked="checked">
-					<label for="radio-one" class="one">один</label>
+					<label for="radio-one" class="one img">один</label>
 					
 					<div class="block-one">
 						<table class="map">
@@ -125,8 +126,8 @@
 					<div class="slider"></div>
 				</div>
 				<div class="set buttons">
-					<input id="reset" type="reset" value="Сброс">
-					<input id="submit" type="submit" value="Скачать">
+					<input id="reset" class="btn" type="reset" value="Сброс">
+					<input id="submit" class="btn" type="submit" value="Скачать">
 				</div>
 			</form>
 		</div>
@@ -135,7 +136,7 @@
 		
 	</div>
 	<!-- build:js js/vendors.js -->
-	<!-- bower:js -->	
+	<!-- bower:js -->
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/blueimp-tmpl/js/tmpl.js"></script>
 	<script src="bower_components/blueimp-load-image/js/load-image.js"></script>
