@@ -2,7 +2,7 @@
   "name": "watermark-generator",
   "dependencies": {
     "jquery": "1",
-    "jqueryui": "",
+    "jqueryui": "1.11.3",
     "jquery-file-upload": "~9.9.3"
   },
   "devDependencies": {}
