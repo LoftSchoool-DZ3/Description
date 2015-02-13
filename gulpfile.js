@@ -5,6 +5,17 @@ var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
 var useref = require('gulp-useref');
 var concatCss = require('gulp-concat-css');
+var wiredep = require('wiredep').stream;
+
+//bower wiredep
+gulp.task('bower', function () {
+  gulp.src('./app/index.html')
+    .pipe(wiredep({
+      directory: 'app/bower_components'
+    }))
+    .pipe(gulp.dest('app'));
+});
+
 
 gulp.task('default', ['ap','copy','useref']);
 
