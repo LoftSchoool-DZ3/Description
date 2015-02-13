@@ -24,8 +24,12 @@
 			<div class="main">
 				<h1>Генератор водяных знаков</h1>
 				<div class="view">
-					<div class="layer v-orig-img"></div>
-					<div class="layer v-watermark"></div>
+					<div class="layer v-orig-img">
+						<img src="img/orig-img.jpg">
+					</div>
+					<div class="layer v-watermark">
+						<img src="img/watermark.png">
+					</div>
 				</div>
 			</div>
 			<form action="" method="" class="settings">
@@ -33,7 +37,7 @@
 				<div class="set load-imgs">
 					<label>Исходное изображение</label>
 					<div class="input-wrapper-file wr-orig-img">
-						<span id="orig-img-name">Загрузите изображение1</span>
+						<span id="orig-img-name">Загрузите изображение</span>
 						<label for="orig-img"><div class="img load"></div></label>
 						<input id="orig-img" class="field-file" type="file" accept="image/*" name="orig-img">
 					</div>
@@ -104,6 +108,10 @@
 								<td class="cell"></td>
 							</tr>
 						</table>
+						<div class="tile-cross">
+							<div class="vertic"></div>
+							<div class="horiz"></div>
+						</div>
 						<div class="manager">
 							<label for="x-tile" class="lab-tile-x"><div class="img padding-vertic"></div></label>
 							<input id="x-tile" type="text" class="field-number" name="x-tile" value="0">
@@ -123,9 +131,7 @@
 				</div>
 				<div class="set trans">
 					<h3>Прозрачность</h3>
-					<div class="slider">
-						<div class="ui-slider-handle ui-state-default"></div>
-					</div>
+					<div class="slider"></div>
 					<div class="img triangle"></div>
 				</div>
 				<div class="set buttons">
@@ -136,6 +142,13 @@
 		</div>
 	</div>
 	<div class="footer">
+		
+	</div>
+	<div class="langs">
+		<div class="lang rus"></div>
+		<div class="lang eng"></div>
+	</div>
+	<div class="like-block">
 		
 	</div>
 	

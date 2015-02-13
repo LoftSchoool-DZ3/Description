@@ -119,8 +119,8 @@ h2.set {
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
+    background: #f1f1f5;
 
-    border: 1px solid blue;
 }
 
 .layer {
@@ -337,6 +337,7 @@ body {
     position: absolute;
     top: 10px;
     right: 39px;
+    cursor: pointer;
 }
 
 .img.one {
@@ -346,6 +347,7 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
+    cursor: pointer;
 }
 
 .tile:hover,
@@ -490,4 +492,72 @@ h3 {
     bottom: -11px;
     right: 120px;
     background-color: #f1f1f5;
+}
+
+.slider .ui-slider-range {
+    background: #9eb2c0;
+    height: 100%;
+}
+
+.slider .ui-slider-handle {
+    height: 8px;
+    display: block;
+    width: 8px;
+    cursor: pointer;
+    background-color: #9eb2c0;
+    border: 7px solid #dbe1e8;
+    border-radius: 20px;
+    position: absolute;
+    top: -10px;
+    margin-left: -11px;
+    outline: none;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.38);
+}
+
+.slider .ui-slider-handle.ui-state-active,
+.slider .ui-slider-handle.ui-state-hover {
+    background-color: #f97e76;
+}
+
+.tile-cross {
+    height: 102px;
+    width: 102px;
+    margin-top: 38px;
+    position: relative;
+    padding: 1px;
+    border-radius: 3px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.tile-cross .vertic {
+    height: 100px;
+    width: 1px;
+    background-color: #f97e76;
+    display: inline-block;
+    max-width: 100px;
+    min-width: 1px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+}
+
+.tile-cross .horiz {
+    display: inline-block;
+    width: 100px;
+    height: 1px;
+    background-color: #f97e76;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    min-height: 1px;
+    max-height: 100px;
+
+}
+
+.layer.v-watermark {
+    z-index: 50;
 }
