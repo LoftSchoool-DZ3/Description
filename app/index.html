@@ -13,6 +13,7 @@
 	<!-- endbuild -->
 	
 	<!-- build:css css/styles.css -->
+	<link rel="stylesheet" type="text/css" href="css/fonts.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/images.css">
     <!-- endbuild -->
@@ -47,14 +48,86 @@
 				</div>
 				<div class="set position">
 					<h3>Положение</h3>
+					
+					<input type="radio" id="radio-tile" name="radio" value="tile">
+					<label for="radio-tile" class="tile img">замостить</label>
+					<input type="radio" id="radio-one" name="radio" value="one" checked="checked">
+					<label for="radio-one" class="one img">один</label>
+					
+					<div class="block-one">
+						<table class="map">
+							<tr class="row1">
+								<td class="cell active"></td>
+								<td class="cell"></td>
+								<td class="cell"></td>
+							</tr>
+							<tr class="row2">
+								<td class="cell"></td>
+								<td class="cell"></td>
+								<td class="cell"></td>
+							</tr>
+							<tr class="row3">
+								<td class="cell"></td>
+								<td class="cell"></td>
+								<td class="cell"></td>
+							</tr>
+						</table>
+						<div class="manager">
+							<label for="x-one">X</label>
+							<input id="x-one" type="number" class="field-number" name="x-one">
+							<div class="up-down">
+								<div class="img arrow-up">&#708;</div>
+								<div class="img arrow-down">&#709;</div>
+							</div>
+							<label for="y-one">Y</label>
+							<input id="y-one" type="number" class="field-number" name="y-one">
+							<div class="up-down">
+								<div class="img arrow-up">&#708;</div>
+								<div class="img arrow-down">&#709;</div>
+							</div>
+						</div>
+					</div>
+					<div class="block-tile">
+						<table class="map">
+							<tr class="row1">
+								<td class="cell"></td>
+								<td class="cell"></td>
+								<td class="cell"></td>
+							</tr>
+							<tr class="row2">
+								<td class="cell"></td>
+								<td class="cell"></td>
+								<td class="cell"></td>
+							</tr>
+							<tr class="row3">
+								<td class="cell"></td>
+								<td class="cell"></td>
+								<td class="cell"></td>
+							</tr>
+						</table>
+						<div class="manager">
+							<label for="x-tile"><div class="img padding-vertic"></div></label>
+							<input id="x-tile" type="number" class="field-number" name="x-tile">
+							<div class="up-down">
+								<div class="img arrow-up">&#708;</div>
+								<div class="img arrow-down">&#709;</div>
+							</div>
+							<label for="y-tile"><div class="img padding-horiz"></div></label>
+							<input id="y-tile" type="number" class="field-number" name="y-tile">
+							<div class="up-down">
+								<div class="img arrow-up">&#708;</div>
+								<div class="img arrow-down">&#709;</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="set trans">
 					<h3>Прозрачность</h3>
 					<div class="slider"></div>
 				</div>
 				<div class="set buttons">
-					<input id="reset" type="reset" value="Сброс">
-					<input id="submit" type="submit" value="Скачать">
+					<input id="reset" class="btn" type="reset" value="Сброс">
+					<input id="submit" class="btn" type="submit" value="Скачать">
 				</div>
 			</form>
 		</div>
@@ -63,7 +136,7 @@
 		
 	</div>
 	<!-- build:js js/vendors.js -->
-	<!-- bower:js -->	
+	<!-- bower:js -->
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/blueimp-tmpl/js/tmpl.js"></script>
 	<script src="bower_components/blueimp-load-image/js/load-image.js"></script>

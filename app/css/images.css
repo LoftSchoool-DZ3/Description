@@ -1,6 +1,7 @@
 .img {
   display: inline-block;
   background: url('../img/spritebox.png') no-repeat center center transparent;
+  text-indent: -10000px;
 }
 
 .img.like {
