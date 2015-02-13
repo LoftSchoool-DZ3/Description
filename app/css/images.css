@@ -103,16 +103,12 @@
   background-position: -110px -34px;
   height: 8px;
   width: 13px;
-  position: absolute;
-  margin-top: 5px;
 }
 
 .img.arrow-down {
   background-position: -91px -54px;
   height: 8px;
   width: 13px;
-  position: relative;
-  margin-bottom: -10px;
 }
 
 .img.arrow-up:hover {
