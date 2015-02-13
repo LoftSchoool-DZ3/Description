@@ -13,6 +13,7 @@
 	<!-- endbuild -->
 	
 	<!-- build:css css/styles.css -->
+	<link rel="stylesheet" type="text/css" href="css/fonts.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/images.css">
     <!-- endbuild -->
@@ -32,7 +33,7 @@
 				<div class="set load-imgs">
 					<label>Исходное изображение</label>
 					<div class="input-wrapper-file wr-orig-img">
-						<span id="orig-img-name">Загрузите изображение</span>
+						<span id="orig-img-name">Загрузите изображение1</span>
 						<label for="orig-img"><div class="img load"></div></label>
 						<input id="orig-img" class="field-file" type="file" accept="image/*" name="orig-img">
 					</div>
@@ -47,38 +48,74 @@
 				</div>
 				<div class="set position top-border">
 					<h3>Положение</h3>
-					<div class="choose-position">
-						<ul class="row">
-							<li class="cell top-left"></li>
-							<li class="cell top-center"></li>
-							<li class="cell top-right"></li>
-						</ul>
-						<ul class="row">
-							<li class="cell mid-left current-position"></li>
-							<li class="cell mid-center"></li>
-							<li class="cell mid-right"></li>
-						</ul>
-						<ul class="row">
-							<li class="cell bot-left"></li>
-							<li class="cell bot-center"></li>
-							<li class="cell bot-right"></li>
-						</ul>
-					</div>
-					<div class="input-position">
-						<div class="input-group">
-							<label for="x">X</label>
-							<input type="text" class="input" id="x" name="x">
-							<div class="arrows">
-								<div class="img arrow-up"></div>
-								<div class="img arrow-down"></div>
+					<input type="radio" id="radio-tile" name="radio" value="tile">
+					<label for="radio-tile" class="tile img">замостить</label>
+					<input type="radio" id="radio-one" name="radio" value="one" checked="checked">
+					<label for="radio-one" class="one img">один</label>
+					
+					<div class="block-one">
+						<table class="map">
+							<tr class="row1">
+								<td class="cell active"></td>
+								<td class="cell"></td>
+								<td class="cell"></td>
+							</tr>
+							<tr class="row2">
+								<td class="cell"></td>
+								<td class="cell"></td>
+								<td class="cell"></td>
+							</tr>
+							<tr class="row3">
+								<td class="cell"></td>
+								<td class="cell"></td>
+								<td class="cell"></td>
+							</tr>
+						</table>
+						<div class="manager">
+							<label for="x-one">X</label>
+							<input id="x-one" type="number" class="field-number" name="x-one">
+							<div class="up-down">
+								<div class="img arrow-up">&#708;</div>
+								<div class="img arrow-down">&#709;</div>
+							</div>
+							<label for="y-one">Y</label>
+							<input id="y-one" type="number" class="field-number" name="y-one">
+							<div class="up-down">
+								<div class="img arrow-up">&#708;</div>
+								<div class="img arrow-down">&#709;</div>
 							</div>
 						</div>
-						<div class="input-group">
-							<label for="y">Y</label>
-							<input type="text" class="input" id="y" name="y">
-							<div class="arrows">
-								<div class="img arrow-up"></div>
-								<div class="img arrow-down"></div>
+					</div>
+					<div class="block-tile">
+						<table class="map">
+							<tr class="row1">
+								<td class="cell"></td>
+								<td class="cell"></td>
+								<td class="cell"></td>
+							</tr>
+							<tr class="row2">
+								<td class="cell"></td>
+								<td class="cell"></td>
+								<td class="cell"></td>
+							</tr>
+							<tr class="row3">
+								<td class="cell"></td>
+								<td class="cell"></td>
+								<td class="cell"></td>
+							</tr>
+						</table>
+						<div class="manager">
+							<label for="x-tile"><div class="img padding-vertic"></div></label>
+							<input id="x-tile" type="number" class="field-number" name="x-tile">
+							<div class="up-down">
+								<div class="img arrow-up">&#708;</div>
+								<div class="img arrow-down">&#709;</div>
+							</div>
+							<label for="y-tile"><div class="img padding-horiz"></div></label>
+							<input id="y-tile" type="number" class="field-number" name="y-tile">
+							<div class="up-down">
+								<div class="img arrow-up">&#708;</div>
+								<div class="img arrow-down">&#709;</div>
 							</div>
 						</div>
 					</div>
@@ -87,9 +124,9 @@
 					<h3>Прозрачность</h3>
 					<div class="slider"></div>
 				</div>
-				<div class="set buttons top-border">
-					<input id="reset" type="reset" value="Сброс">
-					<input id="submit" type="submit" value="Скачать">
+				<div class="set buttons">
+					<input id="reset" class="btn" type="reset" value="Сброс">
+					<input id="submit" class="btn" type="submit" value="Скачать">
 				</div>
 			</form>
 		</div>
