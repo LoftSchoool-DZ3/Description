@@ -18,6 +18,7 @@ body {
     min-height: 670px;
 
     font-family: RobotoLight, sans-serif;
+    color: #2e3641;
 }
 
 .wrapper {
@@ -62,7 +63,8 @@ body {
     height: 100%;
 
 
-    font-size: 18px;    
+    font-size: 18px;
+    padding: 15px 24px 24px;    
 
 }
 
@@ -77,6 +79,7 @@ body {
     width: 100%;
     position: relative;
     font-size: 14px;
+    padding: 12px 19px 0;
 }
 
 
@@ -87,13 +90,8 @@ h2.set {
     line-height: 100%;
     color: #2e3641;
     font-weight: normal;
+    padding: 27px 61px 0;
 }
-
-
-h2.set {
-    height: 73px;
- }
-
 
 .load-imgs {
     height: 171px;
@@ -101,10 +99,12 @@ h2.set {
 
 .position {
     height: 205px;
+    padding-top: 13px;
 }
 
 .trans {
     height: 98px;
+    padding-top: 15px;
 }
 
 .buttons {
@@ -137,11 +137,15 @@ h2.set {
     height: 70px;
     margin-top: -70px;
 }
+
 .slider {
-    margin: 30px auto 0;
+    margin: 27px auto 0;
     background: #dbe1e8;
     width: 218px;
     height: 3px;
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
+    position: relative;
 }
 
 .input-wrapper-file {
@@ -161,6 +165,7 @@ h2.set {
     -webkit-border-radius: 3px;
             border-radius: 3px;
     position: relative;
+    margin-bottom: 21px;
 }
 
 .input-wrapper-file > span {
@@ -173,6 +178,7 @@ h2.set {
     word-wrap: normal;
 
     -o-text-overflow: ellipsis;
+    padding: 2px 5px;
 }
 
 .input-wrapper-file label {
@@ -235,6 +241,9 @@ h2.set {
     border: 1px solid #9eb2c0;
     -webkit-border-radius: 3px;
             border-radius: 3px;
+            position: absolute;
+            top: 70px;
+            left: 19px;
 }
 
 .cell:first-child {
@@ -281,6 +290,8 @@ h1 {
     line-height: 100%;
     color: white;
     font-weight: normal;
+    margin-left: -2px;
+    margin-bottom: 60px;
 }
 
 body {
@@ -299,26 +310,42 @@ body {
     padding: 0;
     -webkit-border-radius: 3px;
             border-radius: 3px;
+            cursor: pointer;
+            -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                    box-sizing: border-box;
 }
 
 #submit {
     background-color: #f97e76;
+    position: absolute;
+    top: 56px;
+    right: 12px;
 }
 
 #reset {
     background-color: #c1cfd9;
+    position: absolute;
+    top: 56px;
+    left: 10px;
 }
 
 .img.tile {
     background-position: -19px -59px;
     height: 19px;
     width: 19px;
+    position: absolute;
+    top: 10px;
+    right: 39px;
 }
 
 .img.one {
     background-position: -38px -59px;
     height: 19px;
     width: 19px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .tile:hover,
@@ -333,4 +360,134 @@ body {
     background-position: -63px -22px;
     height: 19px;
     width: 19px;
+}
+
+label {
+    display: inline-block;
+}
+
+.load-imgs > label {
+    margin-bottom: 7px;
+    color: #2e3641;
+
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: normal;
+    color: #2e3641;
+}
+
+.field-number {
+    width: 45px;
+    height: 45px;
+    font-family: SegoeUILight, sans-serif;
+    font-size: 24px;
+    color: #2e3641;
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    padding: 0 3px 3px;
+    border: 1px solid #9eb2c0;
+    background: #f1f1f5;
+    position: absolute;
+    right: 42px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    line-height: 100%;
+    text-align: center;
+}
+
+#x-one,
+#x-tile {
+    top: 70px;
+
+}
+
+#y-one,
+#y-tile {
+    top: 127px;
+
+}
+
+.lab-one-x,
+.lab-one-y {
+    font-size: 16px;
+    position: absolute;
+    right: 95px;
+}
+
+.lab-one-x {
+    top: 82px;
+
+}
+
+.lab-one-y {
+    top: 141px;
+    
+}
+
+#one-x-up,
+#tile-x-up {
+    position: absolute;
+    top: 74px;
+    right: 22px;
+}
+
+#one-y-up,
+#tile-y-up {
+    position: absolute;
+    top: 131px;
+    right: 22px;
+}
+
+#one-x-down,
+#tile-x-down {
+    position: absolute;
+    top: 104px;
+    right: 22px;
+}
+
+#one-y-down,
+#tile-y-down {
+    position: absolute;
+    top: 161px;
+    right: 22px;
+}
+
+.lab-tile-x {
+    position: absolute;
+    top: 80px;
+    right: 92px;
+
+}
+
+.lab-tile-y {
+    position: absolute;
+    top: 140px;
+    right: 92px;
+
+}
+
+#reset:hover {
+    border: 1px solid #a6b2bb;
+    background-color: #b9c6d0;
+}
+
+#submit:hover {
+    border: 1px solid #e3736c;
+    background-color: #f17972;
+}
+
+.load-imgs,
+.position,
+.trans {
+   border-bottom: 1px solid #f4c3c2;
+}
+
+.img.triangle {
+    position: absolute;
+    bottom: -11px;
+    right: 120px;
+    background-color: #f1f1f5;
 }
