@@ -511,12 +511,20 @@ h3 {
 
 #reset:hover {
     border: 1px solid #a6b2bb;
-    background-color: #b9c6d0;
+    border-color: rgb(166, 178, 187);
+    background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(193,207,217)), color-stop(95%, rgb(176,189,198)), to(rgb(158,170,179)));
+    background-image: -webkit-linear-gradient(bottom, rgb(193,207,217) 0%, rgb(176,189,198) 95%, rgb(158,170,179) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(193,207,217) 0%, rgb(176,189,198) 95%, rgb(158,170,179) 100%);
+    background-image: linear-gradient(to top, rgb(193,207,217) 0%, rgb(176,189,198) 95%, rgb(158,170,179) 100%);
 }
 
 #submit:hover {
     border: 1px solid #e3736c;
-    background-color: #f17972;
+    border-color: rgb(227, 115, 108);
+    background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(249,126,118)), color-stop(95%, rgb(238,121,113)), to(rgb(227,115,108)));
+    background-image: -webkit-linear-gradient(bottom, rgb(249,126,118) 0%, rgb(238,121,113) 95%, rgb(227,115,108) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(249,126,118) 0%, rgb(238,121,113) 95%, rgb(227,115,108) 100%);
+    background-image: linear-gradient(to top, rgb(249,126,118) 0%, rgb(238,121,113) 95%, rgb(227,115,108) 100%);
 }
 
 .load-imgs,
