@@ -4,6 +4,8 @@ jQuery(document).ready(function($) {
     var $slider = $('.slider'),
         $vatermark = $('.v-watermark');
 
+    $vatermark.css('opacity', .3);
+
     $slider.slider({
         orientation: "horizontal",
         range: "min",
@@ -11,14 +13,9 @@ jQuery(document).ready(function($) {
         min: 0,
         value: 30,
         slide: function(event, ui) {
-            console.log($slider.slider('value'));
             var sliderValue = $slider.slider('value');
             $vatermark.css('opacity', sliderValue / 100);
         }
     });
-
-
-
-
 
   });
