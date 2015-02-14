@@ -17,7 +17,7 @@ gulp.task('bower', function () {
 });
 
 
-gulp.task('default', ['ap','copy','useref']);
+gulp.task('default', ['copy','ap','useref']);
 
 
 gulp.task('ap', function() {
@@ -31,6 +31,9 @@ gulp.task('ap', function() {
 gulp.task('copy', function () {
     gulp.src('app/img/*')
         .pipe(gulp.dest('dist/img'));
+
+    gulp.src('app/fonts/*')
+        .pipe(gulp.dest('dist/fonts'));
 
 });
 
