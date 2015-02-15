@@ -6,6 +6,7 @@ var uglify = require('gulp-uglify');
 var useref = require('gulp-useref');
 var concatCss = require('gulp-concat-css');
 var wiredep = require('wiredep').stream;
+var connect = require('gulp-connect');
 
 //bower wiredep
 gulp.task('bower', function () {
@@ -26,8 +27,8 @@ gulp.task('ap', function() {
             browsers: ['last 20 versions']
         }))
         .pipe(gulp.dest('app/css/'));
-var gulp = require('gulp'),
-connect = require('gulp-connect');
+    });
+
 
 gulp.task('connect', function() {
   connect.server({
@@ -61,4 +62,4 @@ gulp.task('default', ['copy','ap','useref']);
 gulp.task('watch', function() {
     gulp.watch("app/*", ['default']);
     gulp.watch("app/*/*", ['default']);
-}
+});
