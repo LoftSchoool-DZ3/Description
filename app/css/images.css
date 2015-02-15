@@ -10,7 +10,7 @@
   width: 26px;
 }
 
-.img.like-hover {
+.img.like:hover {
   background-position: -26px -0px;
   height: 32px;
   width: 26px;
@@ -28,13 +28,13 @@
   width: 15px;
 }
 
-.img.fb-hover {
+.img.fb:hover {
   background-position: -15px -32px;
   height: 27px;
   width: 15px;
 }
 
-.img.tw-hover {
+.img.tw:hover {
   background-position: -30px -32px;
   height: 22px;
   width: 28px;
@@ -76,7 +76,7 @@
   width: 32px;
 }
 
-.img.vk-hover {
+.img.vk:hover {
   background-position: -91px -0px;
   height: 18px;
   width: 32px;
