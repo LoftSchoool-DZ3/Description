@@ -34,13 +34,14 @@
 			</div>
 			<div class="settings">
 				<h2 class="set">Настройки</h2>
-				<form class="settings-before">
+				<form class="settings-before" action="server/generator.php" method="post">
 					<div class="set load-imgs">
 						<label>Исходное изображение</label>
 						<div class="input-wrapper-file wr-orig-img">
 							<span id="orig-img-name">Загрузите изображение</span>
 							<label for="orig-img"><div class="img load"></div></label>
 							<input id="orig-img" class="field-file" type="file" accept="image/*" name="orig-img">
+							
 						</div>
 						<label>Водяной знак</label>
 						<div class="input-wrapper-file wr-watermark">
@@ -54,6 +55,8 @@
 				<form class="settings-after">
 					<div class="set position">
 						<h3>Положение</h3>
+						<input id="orig-img-srvpath" type="hidden" value="advertising.gif" name="orig-img-srvpath">
+						<input id="watermark-srvpath" type="hidden" value="alliance_16.gif" name="watermark-srvpath">
 						<input type="radio" id="radio-tile" name="radio" value="tile">
 						<label for="radio-tile" class="tile img">замостить</label>
 						<input type="radio" id="radio-one" name="radio" value="one" checked="checked">
