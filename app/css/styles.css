@@ -429,8 +429,7 @@ h3 {
     top: 141px;
     
 }
-.arrow-up,
-.arrow-down {
+.position * {
     cursor: pointer;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -438,7 +437,6 @@ h3 {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-
 }
 #one-x-up,
 #tile-x-up {

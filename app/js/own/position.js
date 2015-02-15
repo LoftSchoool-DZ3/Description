@@ -15,7 +15,22 @@ jQuery(document).ready(function($) {
 
             this.$watermark = $('.v-watermark');
 
+            this.$cells = $('.cell');
+
+            this.$leftTop = $('.left-top');
+            this.$centerTop = $('.center-top');
+            this.$rightTop = $('.right-top');
+
+            this.$leftCenter = $('.left-center');
+            this.$centerCenter = $('.center-center');
+            this.$rightCenter = $('.right-center');
+
+            this.$leftBottom = $('.left-bottom');
+            this.$centerBottom = $('.center-bottom');
+            this.$rightBottom = $('.right-bottom');
+
             this.setUpEventListeners();
+            this.drag();
 
         },
         setUpEventListeners: function() {
@@ -35,6 +50,43 @@ jQuery(document).ready(function($) {
 
             this.$decrementYbtn.on('click', function() {
                 app.moveY(false);
+            });
+
+            // position cells
+            this.$centerTop.on('click', function() {
+                app.setPosition(217, 0, $(this))
+            });
+
+            this.$leftTop.on('click', function() {
+                app.setPosition(0, 0, $(this))
+            });
+
+            this.$rightTop.on('click', function() {
+                app.setPosition(434, 0, $(this))
+            });
+
+            this.$centerCenter.on('click', function() {
+                app.setPosition(217, 178, $(this))
+            });
+
+            this.$leftCenter.on('click', function() {
+                app.setPosition(0, 178, $(this))
+            });
+
+            this.$rightCenter.on('click', function() {
+                app.setPosition(434, 178, $(this))
+            });
+
+            this.$centerBottom.on('click', function() {
+                app.setPosition(217, 309, $(this))
+            });
+
+            this.$leftBottom.on('click', function() {
+                app.setPosition(0, 309, $(this))
+            });
+
+            this.$rightBottom.on('click', function() {
+                app.setPosition(434, 309, $(this))
             });
 
         },
@@ -61,6 +113,38 @@ jQuery(document).ready(function($) {
 
             app.$watermark.css('top', yPos+'px');
             app.$yInput.val(yPos);
+        },
+        setActiveCell: function($this) {
+            this.$cells.closest('.map').find('.cell').removeClass('active');
+            $this.addClass('active');
+        },
+        setPosition: function(left, top, $this) {
+
+            app.$watermark.css({
+                top: top,
+                left: left
+            });
+
+            app.$xInput.val(left)
+            app.$yInput.val(top);
+
+            app.setActiveCell($this);
+
+        },
+        drag: function() {
+
+            this.$watermark.draggable({
+                containment: "parent",
+                cursor: "move",
+                drag: function( event, ui ) {
+                    var top = ui.position.top,
+                        left = ui.position.left;
+
+                    app.$xInput.val(left);
+                    app.$yInput.val(top);
+                }
+            });
+
         }
 
 
