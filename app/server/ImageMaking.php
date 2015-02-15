@@ -43,13 +43,12 @@
 			return $result;
 		}
 
-		function MakeImage(){			
+		function MakeImage($left = 0, $top = 0, $opacity = 50){			
 			 $image = WideImage::load($this->origImagePath);
 			 $watermark = WideImage::load($this->watermarkImagePath);
-			 $new_image = $image->merge($watermark,-10,-10,60);
-			 $new_image->saveToFile('files/test.jpg');
+			 $new_image = $image->merge($watermark,$left, $top, $opacity);
+			 $new_image->saveToFile('files/test.gif');
 			 echo $this->watermarkImagePath;
 		}
-
 }
 ?>
