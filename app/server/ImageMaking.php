@@ -12,6 +12,8 @@
 
 		private $origImagePath;
 		private $watermarkImagePath;
+
+		private $imgType; 
 	
 		function __construct($imgOrirginFileName, $imgWatermarkFileName)
 			{
@@ -38,8 +40,13 @@
 		function CheckImageType()
 		{
 			$result = false;
-			if (in_array(exif_imagetype($this->watermarkImagePath), array(IMAGETYPE_GIF, IMAGETYPE_JPEG,  IMAGETYPE_PNG)))
+			if (in_array(exif_imagetype($this->watermarkImagePath), array(IMAGETYPE_GIF, IMAGETYPE_JPEG,  IMAGETYPE_PNG))){
+				$this->
 				$result = true;
+
+			}
+
+				
 			return $result;
 		}
 
