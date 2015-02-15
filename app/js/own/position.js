@@ -31,6 +31,7 @@ jQuery(document).ready(function($) {
 
             this.setUpEventListeners();
             this.drag();
+            this.inputPositioningSetup();
 
         },
         setUpEventListeners: function() {
@@ -136,7 +137,7 @@ jQuery(document).ready(function($) {
             this.$watermark.draggable({
                 containment: "parent",
                 cursor: "move",
-                drag: function( event, ui ) {
+                drag: function (event, ui) {
                     var top = ui.position.top,
                         left = ui.position.left;
 
@@ -145,6 +146,22 @@ jQuery(document).ready(function($) {
                 }
             });
 
+        },
+        inputPositioningSetup: function() {
+
+            this.$xInput.on('keyup', function() {
+                var $this = $(this);
+
+                app.$watermark.css('left', $this.val() + 'px');
+
+            });
+            
+            this.$yInput.on('keyup', function() {
+                var $this = $(this);
+
+                app.$watermark.css('top', $this.val() + 'px');
+
+            });
         }
 
 
