@@ -22,7 +22,8 @@
 
 		if ($imgMaker->CheckImageExists()){
 			if ($imgMaker->CheckImageType()){
-					$imgMaker->MakeImage($leftPos, $topPos);				
+					$imgMaker->MakeImage($leftPos, $topPos);	
+					echo "sdfdsf";			
 			}
 		}
 	}
