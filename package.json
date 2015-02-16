@@ -12,4 +12,5 @@
     "wiredep": "^2.2.2",
     "gulp-livereload": "^3.6.0",
     "gulp-connect": "^2.2.0"
+  }
 }
