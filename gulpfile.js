@@ -45,6 +45,9 @@ gulp.task('copy', function () {
     gulp.src('app/fonts/*')
         .pipe(gulp.dest('dist/fonts'));
 
+    gulp.src('app/server/*')
+        .pipe(gulp.dest('dist/server'));    
+
 });
 
 gulp.task('useref', function () {
