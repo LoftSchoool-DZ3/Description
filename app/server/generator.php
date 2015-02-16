@@ -22,8 +22,15 @@
 
 		if ($imgMaker->CheckImageExists()){
 			if ($imgMaker->CheckImageType()){
-					$imgMaker->MakeImage($leftPos, $topPos);	
-					echo "sdfdsf";			
+					$newImg = $imgMaker->MakeImage($leftPos, $topPos);	
+					header('Content-Description: File Transfer');
+			    header('Content-Type: application/octet-stream');
+			    header('Content-Disposition: attachment; filename=' . basename($newImg));
+			    header('Content-Transfer-Encoding: binary');
+			    header('Expires: 0');
+			    header('Cache-Control: must-revalidate');
+			    header('Pragma: public');
+			    header('Content-Length: ' . filesize($newImg));		
 			}
 		}
 	}
