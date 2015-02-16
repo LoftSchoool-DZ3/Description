@@ -316,7 +316,8 @@ h1 {
 
 body {
     background: url("../img/bg.jpg") no-repeat center center;
-    background-size: cover;
+    -o-background-size: cover;
+       background-size: cover;
 }
 
 .btn {
