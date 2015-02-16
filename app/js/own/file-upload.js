@@ -8,8 +8,8 @@ $(function () {
         dataType: 'json',
         disableImageResize: /Android(?!.*Chrome)|Opera/
         .test(window.navigator && navigator.userAgent),
-        imageMaxWidth: 800,
-        imageMaxHeight: 800,
+        imageMaxWidth: 651,
+        imageMaxHeight: 534,
         done: function () {},
         progressall: function () {}
     }).prop('disabled', !$.support.fileInput)
