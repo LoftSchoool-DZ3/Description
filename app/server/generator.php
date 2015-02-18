@@ -75,16 +75,29 @@
 		// Слияние изображений
 		imagecopymerge_alpha($im, $stamp, $xOne, $yOne, 0, 0, $sx, $sy, $opacity);
 		
+		//Генерация имени файла
+		function generateName($length){
+  			$chars = 'abdefhiknrstyzABDEFGHKNQRSTYZ23456789';
+  			$numChars = strlen($chars);
+  			$string = '';
+  			for ($i = 0; $i < $length; $i++) {
+   				$string .= substr($chars, rand(1, $numChars) - 1, 1);
+  			}
+  			return $string;
+		};
+
+		$newFileName = "files/" . generateName(5) . ".png";
+		$resultFilePath = "server/" . $newFileName;
 		// Сохранение изображений в файл и освобождение памяти
 		header('Content-type: image/png');
-		imagepng($im, 'files/photo_stamp.png');
+		imagepng($im, $newFileName);
 		imagedestroy($im);
 
 	
 
 
  	 
-	echo json_encode('server/files/photo_stamp.png');
+	echo json_encode($resultFilePath);
 	} else {
 		$vyvod = "Что-то пошло не так..."; 
 	echo json_encode($vyvod);
