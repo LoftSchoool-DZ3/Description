@@ -1,6 +1,8 @@
 <?php 
 	
 	require_once 'lib/WideImage.php';
+	
+	
 
 	define("FILES_PATH", "files/source");
 	define("RESULT_FILES_PATH", "files/result");
@@ -62,12 +64,28 @@
 		}
 
 		function MakeImage($left = 0, $top = 0, $opacity = 50){			
-			 $image = WideImage::load($this->origImagePath);
-			 $watermark = WideImage::load($this->watermarkImagePath);
-			 $new_image = $image->merge($watermark, $left, $top, $opacity);
-			 $newImagePath = 'files/result/'.generateString(5).image_type_to_extension($this->imgType);
-			 $new_image->saveToFile($newImagePath);			 
-			 return $newImagePath;
+			 // $image = WideImage::load($this->origImagePath);
+			 // $watermark = WideImage::load($this->watermarkImagePath);
+			 // $new_image = $image->merge($watermark, $left, $top, $opacity);
+			 // $newImagePath = dirname(__FILE__).DIRECTORY_SEPARATOR.RESULT_FILES_PATH.DIRECTORY_SEPARATOR.generateString(5).image_type_to_extension($this->imgType);
+			 // $new_image->saveToFile($newImagePath);			 
+			 // return $newImagePath;
+			require_once 'lib2\ImageWorkshop.php';	
+						
+			$norwayLayer = ImageWorkshop::initFromPath($this->origImagePath);
+			$watermarkLayer = ImageWorkshop::initFromPath($this->watermarkImagePath);
+			$watermarkLayer->opacity($opacity);
+			$norwayLayer->addLayerOnTop($watermarkLayer, $left, $top, "LT");
+
+			$dirPath = __DIR__.DIRECTORY_SEPARATOR."files".DIRECTORY_SEPARATOR."result";
+			$filename = generateString(5).image_type_to_extension($this->imgType);
+			$createFolders = true;
+			$backgroundColor = null; 
+			$imageQuality = 95;
+
+			$norwayLayer->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality); 
+			return $dirPath.DIRECTORY_SEPARATOR.$filename;
+
 		}
 }
 ?>

@@ -18,19 +18,14 @@
 		$leftPos = (int)$_POST[INPUT_LEFT_POS_NAME];
 		$topPos = (int)$_POST[INPUT_TOP_POS_NAME];
 
-
-
 		if ($imgMaker->CheckImageExists()){
 			if ($imgMaker->CheckImageType()){
-					$newImg = $imgMaker->MakeImage($leftPos, $topPos);	
-					header('Content-Description: File Transfer');
-			    header('Content-Type: application/octet-stream');
-			    header('Content-Disposition: attachment; filename=' . basename($newImg));
-			    header('Content-Transfer-Encoding: binary');
-			    header('Expires: 0');
-			    header('Cache-Control: must-revalidate');
-			    header('Pragma: public');
-			    header('Content-Length: ' . filesize($newImg));		
+					$newImg = $imgMaker->MakeImage($leftPos, $topPos);						
+					// header('Content-type: application/octet-stream');
+					// header('Content-Length: '.filesize($newImg));
+					// header('Content-Disposition: attachment; filename='.basename($newImg));
+					// readfile($newImg);
+					echo $newImg;
 			}
 		}
 	}
