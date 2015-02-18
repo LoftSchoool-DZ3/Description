@@ -14,15 +14,17 @@
 		$yTile = stripslashes($_POST['y-tile']);
 		$opacity = stripslashes($_POST['opacity']);
 		
- 	
+		$origImgPathFull = "server/files/". $origImgPath;
+
+
 
  	//ДАУРЕН ПИШЕТ КОД ЗДЕСЬ!!!//
 
 	
 
 
- 	$vyvod = "ggg"; 
-	echo json_encode($vyvod);
+ 	$vyvod = "" ; 
+	echo json_encode($origImgPathFull);
 	} else {
 		$vyvod = "Что-то пошло не так..."; 
 	echo json_encode($vyvod);
