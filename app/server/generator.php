@@ -1,30 +1,32 @@
 <?php 
 	
-	require_once 'ImageMaking.php';
+	$post = (!empty($_POST)) ? true : false;
 
-	define("INPUT_ORIGIN_IMG_NAME", "orig-img-srvpath");
-	define("INPUT_WATERMARK_IMG_NAME", "watermark-srvpath");
-	define("INPUT_LEFT_POS_NAME", "x-one");
-	define("INPUT_TOP_POS_NAME", "y-one");
+	if($post){
 
-	if (isset($_POST[INPUT_ORIGIN_IMG_NAME])&&isset($_POST[INPUT_WATERMARK_IMG_NAME])){
+
+		$origImgPath = stripslashes($_POST['orig-img-srvpath']);
+		$watermarkPath = stripslashes($_POST['watermark-srvpath']);
+		$radio = stripslashes($_POST['radio']);
+		$xOne = stripslashes($_POST['x-one']);
+		$yOne = stripslashes($_POST['y-one']);
+		$xTile = stripslashes($_POST['x-tile']);
+		$yTile = stripslashes($_POST['y-tile']);
+		$opacity = stripslashes($_POST['opacity']);
 		
-		$imgOriginVal = $_POST[INPUT_ORIGIN_IMG_NAME];
-		$imgWatermarkVal = $_POST[INPUT_WATERMARK_IMG_NAME];
+ 	
 
-		$imgMaker = new ImageMaker($imgOriginVal, $imgWatermarkVal);
+ 	//ДАУРЕН ПИШЕТ КОД ЗДЕСЬ!!!//
 
-		/*получаем значения координат фотермарка с формы*/
-		$leftPos = (int)$_POST[INPUT_LEFT_POS_NAME];
-		$topPos = (int)$_POST[INPUT_TOP_POS_NAME];
+	
 
 
-
-		if ($imgMaker->CheckImageExists()){
-			if ($imgMaker->CheckImageType()){
-					$imgMaker->MakeImage($leftPos, $topPos);				
-			}
-		}
+ 	$vyvod = "ggg"; 
+	echo json_encode($vyvod);
+	} else {
+		$vyvod = "Что-то пошло не так..."; 
+	echo json_encode($vyvod);
 	}
 
+ 
  ?>

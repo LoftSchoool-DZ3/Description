@@ -53,7 +53,8 @@
 			</div>
 			<div class="settings">
 				<h2 class="set">Настройки</h2>
-				<form class="settings-before" action="" method="post">
+				<form id="form" method="post" action="server/generator.php">
+				<div class="settings-before">
 					<div class="set load-imgs">
 						<label>Исходное изображение</label>
 						<div class="input-wrapper-file wr-orig-img">
@@ -69,12 +70,12 @@
 						</div>
 						<div class="img triangle"></div>
 					</div>
-				</form>
-				<form class="settings-after">
+				</div>
+				<div class="settings-after">
 					<div class="set position">
 						<h3>Положение</h3>
-						<input id="orig-img-srvpath" type="hidden" value="advertising.gif" name="orig-img-srvpath">
-						<input id="watermark-srvpath" type="hidden" value="alliance_16.gif" name="watermark-srvpath">
+						<input id="orig-img-srvpath" type="hidden" value="" name="orig-img-srvpath">
+						<input id="watermark-srvpath" type="hidden" value="" name="watermark-srvpath">
 						<input type="radio" id="radio-tile" name="radio" value="tile">
 						<label for="radio-tile" class="tile img">замостить</label>
 						<input type="radio" id="radio-one" name="radio" value="one" checked="checked">
@@ -162,6 +163,7 @@
 						<input id="reset" class="btn" type="reset" value="Сброс">
 						<input id="submit" class="btn" type="submit" value="Скачать">
 					</div>
+				</div>	
 				</form>
 			</div>
 		</div>
@@ -185,8 +187,8 @@
 	<div class="alert-mask">
 		<div class="modal">
 			<div class="close" title="закрыть">&#215;</div>
-			<p class="message">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum in voluptas veritatis, obcaecati iste, temporibus iure reprehenderit, repudiandae blanditiis saepe aliquid excepturi nihil facere quis tempora. Tenetur expedita animi magnam ut facilis illum quos distinctio vel tempora recusandae tempore saepe dolor accusamus, doloremque officiis, cum deserunt temporibus, quisquam mollitia ipsa.	
+			<p id="message">
+					
 			</p>
 		</div>
 	</div>
