@@ -70,13 +70,7 @@
 		$sy = imagesy($stamp);
 		
 		// Слияние изображений
-		if ($extOrig==="png") {
-			imagecopymerge_alpha($stamp, $im, $xOne, $yOne, 0, 0, $sx, $sy, $opacity);
-		} else {
-			imagecopymerge_alpha($im, $stamp, $xOne, $yOne, 0, 0, $sx, $sy, $opacity);
-		};
-		
-		
+		imagecopymerge_alpha($im, $stamp, $xOne, $yOne, 0, 0, $sx, $sy, $opacity);
 		
 		//Генерация имени файла
 		function generateName($length){
