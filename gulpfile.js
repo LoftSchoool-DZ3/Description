@@ -47,7 +47,8 @@ gulp.task('copy', function () {
 
     gulp.src('app/server/*')
         .pipe(gulp.dest('dist/server'));    
-
+    gulp.src('app/server/files/.htaccess')
+        .pipe(gulp.dest('dist/server/files/'));
     gulp.src('app/favicons/*')
         .pipe(gulp.dest('dist'));
 
