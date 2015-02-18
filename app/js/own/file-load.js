@@ -48,11 +48,8 @@ $(document).ready(function() {
                     var currentInputId = this.id;
 
                     fileup.showFile(currentInputId);
-                },
-                progressall: function() {}
-
+                }
             });
-
         },
 
         //Отображение загруженного файла в области просмотра
@@ -84,11 +81,13 @@ $(document).ready(function() {
                         data: str
                     })
                     .done(function(data) {
+                        $('#message').empty();
                         $("<a href=\""+data+"\">Скачать результат</a>").appendTo('#message');
                         $('.alert-mask').show();
                         
                     })
                     .fail(function() {
+                        $('#message').empty();
                         $('#message').html('FAILED!!!');
                         $('.alert-mask').show();
                     })
