@@ -77,14 +77,14 @@
 		
 		// Сохранение изображений в файл и освобождение памяти
 		header('Content-type: image/png');
-		imagepng($im, 'photo_stamp.png');
+		imagepng($im, 'files/photo_stamp.png');
 		imagedestroy($im);
 
 	
 
 
  	 
-	echo json_encode('server/photo_stamp.png');
+	echo json_encode('server/files/photo_stamp.png');
 	} else {
 		$vyvod = "Что-то пошло не так..."; 
 	echo json_encode($vyvod);
