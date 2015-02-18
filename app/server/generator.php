@@ -23,12 +23,9 @@
   		switch ($extOrig) {
     		case "png":
         		$im = imagecreatefrompng($origImgPathFull);
-        		imagealphablending($im, false);
-				imagesavealpha($im, true);
         		break;
     		case "jpeg" or "jpg":
         		$im = imagecreatefromjpeg($origImgPathFull);
-        		imagealphablending($im, false);
         		break;
     		case "gif":
     			$im = imagecreatefromgif($origImgPathFull);
@@ -37,11 +34,7 @@
 		switch ($extWatermark) {
     		case "png":
         		$stamp = imagecreatefrompng($watermarkPathFull);
-        		imagealphablending($stamp, false);
-				imagesavealpha($stamp, true);
-				
-
-        		break;
+				break;
     		case "jpeg" or "jpg":
         		$stamp = imagecreatefromjpeg($watermarkPathFull);
         		break;
@@ -65,7 +58,11 @@
     };
 		
 		
-		
+		imagealphablending($stamp, false);
+		imagesavealpha($stamp, true);
+		imagealphablending($im, false);
+		imagesavealpha($im, true);
+
 		// Установка позиции вотермарка и получение его высоты/ширины
 		$marge_right =  $yOne;
 		$marge_bottom =  $xOne;
@@ -73,7 +70,13 @@
 		$sy = imagesy($stamp);
 		
 		// Слияние изображений
-		imagecopymerge_alpha($im, $stamp, $xOne, $yOne, 0, 0, $sx, $sy, $opacity);
+		if ($extOrig==="png") {
+			imagecopymerge_alpha($stamp, $im, $xOne, $yOne, 0, 0, $sx, $sy, $opacity);
+		} else {
+			imagecopymerge_alpha($im, $stamp, $xOne, $yOne, 0, 0, $sx, $sy, $opacity);
+		};
+		
+		
 		
 		//Генерация имени файла
 		function generateName($length){
