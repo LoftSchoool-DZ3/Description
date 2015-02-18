@@ -59,15 +59,26 @@ jQuery(document).ready(function($) {
             });
 
             this.$leftTop.on('click', function() {
-                app.setPosition(0, 0, $(this))
+                //app.setPosition(0, 0, $(this));
+                app.$watermark.css({
+                    left:0,
+                    top:0
+                })
             });
 
+
             this.$rightTop.on('click', function() {
-                app.setPosition(434, 0, $(this))
+                //app.setPosition(434, 0, $(this));
+                app.$watermark.css({
+                    left: 'auto',
+                    right:0,
+                    top:0,
+                    bottom: 'auto'
+                });
             });
 
             this.$centerCenter.on('click', function() {
-                app.setPosition(217, 178, $(this))
+                //app.setPosition(217, 178, $(this));
             });
 
             this.$leftCenter.on('click', function() {
