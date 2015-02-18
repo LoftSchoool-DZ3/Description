@@ -1,4 +1,9 @@
 node_modules/
 app/bower_components/
 dist/
+<<<<<<< HEAD
 app/server/files
+=======
+.idea/
+npm-debug.log
+>>>>>>> b9da59b7645182d2c8df9bdb992583eb1aa47d32

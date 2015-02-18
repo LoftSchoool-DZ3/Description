@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Генератор водяных знаков</title>
+
+	<link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes="192x192">
+	<link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="manifest.json">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-TileImage" content="mstile-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- build:css css/vendor.css -->
+	
+	<link rel="stylesheet" href="bower_components/jquery-file-upload/css/jquery.fileupload.css" />
+	<link rel="stylesheet" href="bower_components/jquery-file-upload/css/jquery.fileupload-ui.css" />
+	<link rel="stylesheet" href="bower_components/jquery-file-upload/css/jquery.fileupload-noscript.css" />
+	<link rel="stylesheet" href="bower_components/jquery-file-upload/css/jquery.fileupload-ui-noscript.css" />
+	
+	<!-- endbuild -->
+	
+	<!-- build:css css/styles.css -->
+	<link rel="stylesheet" type="text/css" href="css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/images.css">
+    <!-- endbuild -->
+</head>
+<body>
+	<div class="wrapper">
+		<div class="window">
+			<div class="main">
+				<h1>Генератор водяных знаков</h1>
+				<div class="view">
+					<div class="layer v-orig-img">
+						<img src="img/orig-img.jpg">
+					</div>
+					<div class="layer v-watermark">
+						<img src="img/watermark.png">
+					</div>
+				</div>
+			</div>
+			<div class="settings">
+				<h2 class="set">Настройки</h2>
+				<form id="form" method="post" action="server/generator.php">
+				<div class="settings-before">
+					<div class="set load-imgs">
+						<label>Исходное изображение</label>
+						<div class="input-wrapper-file wr-orig-img">
+							<span id="orig-img-name">Загрузите изображение</span>
+							<label for="orig-img"><div class="img load"></div></label>
+							<input id="orig-img" class="field-file fileupload" type="file" accept="image/*" name="files[]">
+						</div>
+						<label>Водяной знак</label>
+						<div class="input-wrapper-file wr-watermark">
+							<span id="watermark-name">Загрузите изображение</span>
+							<label for="watermark"><div class="img load"></div></label>
+							<input id="watermark" class="field-file fileupload" type="file" accept="image/*" name="files[]">
+						</div>
+						<div class="img triangle"></div>
+					</div>
+				</div>
+				<div class="settings-after">
+					<div class="set position">
+						<h3>Положение</h3>
+						<input id="orig-img-srvpath" type="hidden" value="" name="orig-img-srvpath">
+						<input id="watermark-srvpath" type="hidden" value="" name="watermark-srvpath">
+						<input type="radio" id="radio-tile" name="radio" value="tile">
+						<label for="radio-tile" class="tile img">замостить</label>
+						<input type="radio" id="radio-one" name="radio" value="one" checked="checked">
+						<label for="radio-one" class="one img">один</label>
+						
+						<div class="block-one">
+							<table class="map">
+								<tr class="row1">
+									<td class="cell active left-top"></td>
+									<td class="cell center-top"></td>
+									<td class="cell right-top"></td>
+								</tr>
+								<tr class="row2">
+									<td class="cell left-center"></td>
+									<td class="cell center-center"></td>
+									<td class="cell right-center"></td>
+								</tr>
+								<tr class="row3">
+									<td class="cell left-bottom"></td>
+									<td class="cell center-bottom"></td>
+									<td class="cell right-bottom"></td>
+								</tr>
+							</table>
+							<div class="manager">
+								<label for="x-one" class="lab-one-x">X</label>
+								<input id="x-one" type="text" class="field-number" name="x-one" value="0">
+								<div class="up-down">
+									<div class="img arrow-up" id="one-x-up">&#708;</div>
+									<div class="img arrow-down" id="one-x-down">&#709;</div>
+								</div>
+								<label for="y-one" class="lab-one-y">Y</label>
+								<input id="y-one" type="text" class="field-number" name="y-one" value="0">
+								<div class="up-down">
+									<div class="img arrow-up" id="one-y-up">&#708;</div>
+									<div class="img arrow-down" id="one-y-down">&#709;</div>
+								</div>
+							</div>
+						</div>
+						<div class="block-tile">
+							<table class="map">
+								<tr class="row1">
+									<td class="cell"></td>
+									<td class="cell"></td>
+									<td class="cell"></td>
+								</tr>
+								<tr class="row2">
+									<td class="cell"></td>
+									<td class="cell"></td>
+									<td class="cell"></td>
+								</tr>
+								<tr class="row3">
+									<td class="cell"></td>
+									<td class="cell"></td>
+									<td class="cell"></td>
+								</tr>
+							</table>
+							<div class="tile-cross">
+								<div class="vertic"></div>
+								<div class="horiz"></div>
+							</div>
+							<div class="manager">
+								<label for="x-tile" class="lab-tile-x"><div class="img padding-vertic"></div></label>
+								<input id="x-tile" type="text" class="field-number" name="x-tile" value="0">
+								<div class="up-down">
+									<div class="img arrow-up" id="tile-x-up">&#708;</div>
+									<div class="img arrow-down" id="tile-x-down">&#709;</div>
+								</div>
+								<label for="y-tile" class="lab-tile-y"><div class="img padding-horiz"></div></label>
+								<input id="y-tile" type="text" class="field-number" name="y-tile" value="0">
+								<div class="up-down">
+									<div class="img arrow-up" id="tile-y-up">&#708;</div>
+									<div class="img arrow-down" id="tile-y-down">&#709;</div>
+								</div>
+							</div>
+						</div>
+						<div class="img triangle"></div>
+					</div>
+					<div class="set trans">
+						<h3>Прозрачность</h3>
+						<div class="slider"></div>
+						<input type="text" name="opacity" id="opacity" value="30">
+						<div class="img triangle"></div>
+					</div>
+					<div class="set buttons">
+						<input id="reset" class="btn" type="reset" value="Сброс">
+						<input id="submit" class="btn" type="submit" value="Скачать">
+					</div>
+				</div>	
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<p>&#169; 2015, Это мой сайт, пожалуйста, не копируйте и не воруйте его</p>
+	</div>
+	<ul class="langs">
+		<li class="lang rus">РУС</li>
+		<li class="lang eng">ENG</li>
+	</ul>
+	<div class="likes">
+		<ul>
+			<li><a class="img fb" href="#">facebook</a></li>
+			<li><a class="img tw" href="#">twitter</a></li>
+			<li><a class="img vk" href="#">vkontakte</a></li>
+		</ul>
+		<div class="btn-like"><div class="img like"></div></div>
+	</div>
+	
+	<div class="alert-mask">
+		<div class="modal">
+			<div class="close" title="закрыть">&#215;</div>
+			<p id="message">
+					
+			</p>
+		</div>
+	</div>
+	
+	
+	<!-- build:js js/vendors.js -->
+	
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/jqueryui/jquery-ui.js"></script>
+	<script src="bower_components/blueimp-tmpl/js/tmpl.js"></script>
+	<script src="bower_components/blueimp-load-image/js/load-image.all.min.js"></script>
+	<script src="bower_components/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+	<script src="bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
+	<script src="bower_components/jquery-file-upload/js/jquery.fileupload.js"></script>
+	<script src="bower_components/jquery-file-upload/js/jquery.fileupload-process.js"></script>
+	<script src="bower_components/jquery-file-upload/js/jquery.fileupload-image.js"></script>
+	<script src="bower_components/jquery-file-upload/js/jquery.iframe-transport.js"></script>
+	
+	<!-- endbuild -->
+	<!-- build:js js/combined.js -->
+    <script type="text/javascript" src="js/own/file-load.js"></script>
+    <script type="text/javascript" src="js/own/ui.js"></script>
+	<script type="text/javascript" src="js/own/position.js"></script>
+    
+    <!-- endbuild -->
+</body>
+</html>
