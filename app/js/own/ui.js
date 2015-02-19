@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
 
     var $slider = $('.slider'),
         $watermark = $('.v-watermark'),
-        $opacityInput = $('#opacity_value');
+        $opacityInput = $('#opacity');
 
     $watermark.css('opacity', .3);
 
@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
         slide: function(event, ui) {
             var sliderValue = $slider.slider('value');
             $watermark.css('opacity', sliderValue / 100);
-            $opacityInput.val(sliderValue / 100);
+            $opacityInput.val(sliderValue);
         }
     });
 

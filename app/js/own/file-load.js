@@ -72,7 +72,8 @@ $(document).ready(function() {
             var form = $(this),
                 str = form.serialize();
 
-
+            //console.log(str);
+            
             $.ajax({
                         url: 'server/generator.php',
                         type: 'POST',
