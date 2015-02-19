@@ -123,6 +123,8 @@ h2.set {
        -moz-box-sizing: border-box;
             box-sizing: border-box;
 
+    text-align: center;
+
     background: #f1f1f5;
 }
 
@@ -187,10 +189,8 @@ h2.set {
 
     cursor: default;
     white-space: nowrap;
-
-    -o-text-overflow: ellipsis;
-
-       text-overflow: ellipsis;
+       -o-text-overflow: ellipsis;
+          text-overflow: ellipsis;
     word-wrap: normal;
 }
 
@@ -827,5 +827,15 @@ li {
 
 #opacity {
     display: none;
+}
 
+.v-watermark img,
+.v-orig-img img {
+    display: block;
+}
+
+.layer.v-orig-img {
+    position: relative;
+
+    display: inline-block;
 }
