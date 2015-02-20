@@ -14,10 +14,10 @@ jQuery(document).ready(function($) {
             this.$xInput = $('#x-one');
             this.$yInput = $('#y-one');
 
-            this.$opacityValue = $('#opacity');
+            this.$opacityValue = $('#opacity_value');
 
             this.$watermark = $('.v-watermark');
-            this.$watermarkLayer = $(".v-orig-img");
+            this.$layout = $('.v-orig-img ').find('img');
             this.$cells = $('.cell');
 
             this.$leftTop = $('.left-top');
@@ -47,14 +47,14 @@ jQuery(document).ready(function($) {
                 app.$watermark.css({
                     left:0,
                     top:0,
-                    opacity:30
+                    opacity:.3
                 });
 
                 $('.map').find('.cell').removeClass('active');
                 app.$leftTop.addClass('active');
 
                 $( ".slider" ).slider( "option", "value", 30);
-                app.$opacityValue.val(30);
+                app.$opacityValue.val(.3);
 
             });
 
@@ -76,46 +76,55 @@ jQuery(document).ready(function($) {
 
             // position cells
             this.$centerTop.on('click', function() {
-                app.setPosition(33, 0, $(this));
+                app.setPosition('center', 'top');
+                app.setActiveCell(this);
             });
 
             this.$leftTop.on('click', function() {
-                app.setPosition(0, 0, $(this));
+                app.setPosition('left', 'top');
+                app.setActiveCell(this);
             });
 
             this.$rightTop.on('click', function() {
-                app.setPosition(100, 0, $(this));
+                app.setPosition('right', 'top');
+                app.setActiveCell(this);
             });
 
             this.$centerCenter.on('click', function() {
-                //app.setPosition(33, 33, $(this));
+                app.setPosition('center', 'center');
+                app.setActiveCell(this);
             });
 
             this.$leftCenter.on('click', function() {
-                app.setPosition(0, 33, $(this));
+                app.setPosition('left', 'center');
+                app.setActiveCell(this);
             });
 
             this.$rightCenter.on('click', function() {
-                app.setPosition(100, 33, $(this));
+                app.setPosition('right', 'center');
+                app.setActiveCell(this);
             });
 
             this.$centerBottom.on('click', function() {
-                app.setPosition(33, 100, $(this));
+                app.setPosition('center', 'bottom');
+                app.setActiveCell(this);
             });
 
             this.$leftBottom.on('click', function() {
-                app.setPosition(0, 100, $(this));
+                app.setPosition('left', 'bottom');
+                app.setActiveCell(this);
             });
 
             this.$rightBottom.on('click', function() {
-                app.setPosition(100, 100, $(this));
+                app.setPosition('right', 'bottom');
+                app.setActiveCell(this);
             });
 
         },
         moveX: function(param) {
 
             var xPos = parseInt(app.$watermark.css('left'), 10),
-                borderPoint = app.$watermarkLayer.width() - app.$watermark.width();
+                borderPoint = app.$layout.width() - app.$watermark.width();
 
             if (param) {
                 if (xPos < borderPoint) {
@@ -131,12 +140,16 @@ jQuery(document).ready(function($) {
             app.$watermark.css('left', xPos+'px');
             app.$xInput.val(xPos);
 
-
         },
         moveY: function(param) {
+            app.$watermark.css({
+                marginTop: 0
+            });
 
             var yPos = parseInt(app.$watermark.css('top'), 10),
-                borderPoint = app.$watermarkLayer.height() - app.$watermark.height();
+                borderPoint = app.$layout.height() - app.$watermark.height();
+
+            console.log(app.$layout.height());
 
             if(param) {
                 if (yPos < borderPoint) {
@@ -153,39 +166,54 @@ jQuery(document).ready(function($) {
             app.$yInput.val(yPos);
 
         },
-        setActiveCell: function($this) {
+        setActiveCell: function(elem) {
+            elem = $(elem);
             this.$cells.closest('.map').find('.cell').removeClass('active');
-            $this.addClass('active');
+            elem.addClass('active');
         },
-        setPosition: function(left, top, $this) {
-            // position in %
-            // will translate it in px
-            var layerWidth = app.$watermarkLayer.width(),
-                layerHeight = app.$watermarkLayer.height(),
-                watermarkWidth = app.$watermark.width(),
-                watermarkHeight = app.$watermark.height();
+        setPosition: function(horizontal, vertical) {
 
-            var l = (layerWidth * left) / 100,
-                t = (layerHeight * top) / 100;
+            var position;
 
-            if (left === 100) {
-                l -= watermarkWidth;
+            // horizontal position
+            switch (horizontal) {
+                case 'left':
+                    horizontal = 0;
+                    break;
+                case 'center':
+                    horizontal = ( app.$layout.width() / 2 ) - ( app.$watermark.width() / 2 );
+                    break;
+                case 'right':
+                    horizontal = ( app.$layout.width() ) - ( app.$watermark.width() );
+                    break;
             }
-            if (top === 100) {
-                t -= watermarkHeight;
+
+            // vertical position
+            switch (vertical) {
+                case 'top':
+                    vertical = 0;
+                    break;
+                case 'center':
+                    vertical = ( app.$layout.height() / 2 ) - ( app.$watermark.height() / 2 );
+                    break;
+                case 'bottom':
+                    vertical = ( app.$layout.height() ) - ( app.$watermark.height() );
             }
 
-            var position = {
-                left: l + 'px',
-                top: t + 'px'
+            horizontal = parseInt(horizontal, 10);
+            vertical = parseInt(vertical, 10);
+
+            position = {
+                left: horizontal + 'px',
+                top: vertical + 'px'
             };
 
             app.$watermark.css(position);
 
-            this.$xInput.val(l);
-            this.$yInput.val(t);
-            //sets active cell
-            app.setActiveCell($this);
+            app.$xInput.val(horizontal);
+            app.$yInput.val(vertical);
+
+
         },
         drag: function() {
 
@@ -203,26 +231,46 @@ jQuery(document).ready(function($) {
 
         },
         inputPositioningSetup: function() {
-            var borderPointY = app.$watermarkLayer.height() - app.$watermark.height(),
-                borderPointX = app.$watermarkLayer.width() - app.$watermark.width();
+
+            var borderPointX = app.$layout.width() - app.$watermark.width(),
+                borderPointY = app.$layout.height() - app.$watermark.height();
 
             this.$xInput.on('keyup', function() {
                 var $this = $(this);
 
-                if ($this.val() < borderPointX && $this.val() > 0) {
+                if ($this.val() < borderPointX && $this.val() >= 0) {
                     app.$watermark.css('left', $this.val() + 'px');
                 }
 
             });
-            
+
             this.$yInput.on('keyup', function() {
                 var $this = $(this);
 
-                if ($this.val() < borderPointY && $this.val() > 0) {
+                if ($this.val() < borderPointY && $this.val() >= 0) {
                     app.$watermark.css('top', $this.val() + 'px');
                 }
 
             });
+
+            this.$xInput.on('blur', function() {
+
+                var $this = $(this);
+
+                if ($this.val() === '') {
+                    $this.val(0);
+                }
+            });
+
+            this.$yInput.on('blur', function() {
+
+                var $this = $(this);
+
+                if ($this.val() === '') {
+                    $this.val(0);
+                }
+            });
+
         }
 
 
