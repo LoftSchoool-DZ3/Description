@@ -714,6 +714,7 @@ li {
     top: 0;
     left: 0;
     z-index: 50;
+    opacity: .3;
 }
 @media only screen and (max-height: 750px) {
     .window {

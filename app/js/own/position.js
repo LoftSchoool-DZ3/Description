@@ -88,7 +88,7 @@ jQuery(document).ready(function($) {
             });
 
             this.$centerCenter.on('click', function() {
-                app.setPosition(33, 33, $(this));
+                //app.setPosition(33, 33, $(this));
             });
 
             this.$leftCenter.on('click', function() {
