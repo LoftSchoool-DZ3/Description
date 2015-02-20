@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
             this.$xInput = $('#x-one');
             this.$yInput = $('#y-one');
 
-            this.$opacityValue = $('#opacity_value');
+            this.$opacityValue = $('#opacity');
 
             this.$watermark = $('.v-watermark');
             this.$watermarkLayer = $(".v-orig-img");
@@ -47,14 +47,14 @@ jQuery(document).ready(function($) {
                 app.$watermark.css({
                     left:0,
                     top:0,
-                    opacity:.3
+                    opacity:30
                 });
 
                 $('.map').find('.cell').removeClass('active');
                 app.$leftTop.addClass('active');
 
                 $( ".slider" ).slider( "option", "value", 30);
-                app.$opacityValue.val(.3);
+                app.$opacityValue.val(30);
 
             });
 
