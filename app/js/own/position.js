@@ -41,19 +41,11 @@ jQuery(document).ready(function($) {
             // reset button
             this.$resetBtn.on('click', function() {
 
-                app.$xInput.val(0);
-                app.$yInput.val(0);
-
-                app.$watermark.css({
-                    left:0,
-                    top:0,
-                    opacity:.3
-                });
-
-                $('.map').find('.cell').removeClass('active');
-                app.$leftTop.addClass('active');
+                app.setPosition('left', 'top');
+                app.setActiveCell('.left-top');
 
                 $( ".slider" ).slider( "option", "value", 30);
+                app.$watermark.css('opacity',.3);
                 app.$opacityValue.val(.3);
 
             });
@@ -149,8 +141,6 @@ jQuery(document).ready(function($) {
             var yPos = parseInt(app.$watermark.css('top'), 10),
                 borderPoint = app.$layout.height() - app.$watermark.height();
 
-            console.log(app.$layout.height());
-
             if(param) {
                 if (yPos < borderPoint) {
                     yPos++;
@@ -232,44 +222,74 @@ jQuery(document).ready(function($) {
         },
         inputPositioningSetup: function() {
 
-            var borderPointX = app.$layout.width() - app.$watermark.width(),
-                borderPointY = app.$layout.height() - app.$watermark.height();
+            var borderValues = function (direction, elem) {
 
-            this.$xInput.on('keyup', function() {
-                var $this = $(this);
+                var borderPointX = app.$layout.width() - app.$watermark.width(),
+                    borderPointY = app.$layout.height() - app.$watermark.height(),
+                    elem = $(elem);
 
-                if ($this.val() < borderPointX && $this.val() >= 0) {
-                    app.$watermark.css('left', $this.val() + 'px');
+                if (direction === 'left' && elem.val() < borderPointX && elem.val() >= 0) {
+                    app.$watermark.css(direction, elem.val() + 'px');
                 }
 
+                if (direction === 'top' && elem.val() < borderPointY && elem.val() >= 0) {
+                    app.$watermark.css(direction, elem.val() + 'px');
+                }
+
+            };
+
+            var inputsArray = [
+                this.$xInput,
+                this.$yInput
+            ];
+                //oldValue;
+
+            for (var index in inputsArray) {
+                inputsArray[index].on('blur', function() {
+                    var $this = $(this);
+
+                    if ($this.val() === '') {
+                        $this.val(0);
+                    }
+
+                });
+
+                //inputsArray[index].on('click', function() {
+                //    var $this = $(this),
+                //        oldValue = parseInt( $this.val(), 10 );
+                //
+                //
+                //    $this.val('');
+
+                //});
+
+            }
+
+            this.$xInput.on('keyup', function() {
+                borderValues('left', this);
             });
 
             this.$yInput.on('keyup', function() {
-                var $this = $(this);
-
-                if ($this.val() < borderPointY && $this.val() >= 0) {
-                    app.$watermark.css('top', $this.val() + 'px');
-                }
-
+                borderValues('top', this);
             });
 
-            this.$xInput.on('blur', function() {
-
-                var $this = $(this);
-
-                if ($this.val() === '') {
-                    $this.val(0);
-                }
-            });
-
-            this.$yInput.on('blur', function() {
-
-                var $this = $(this);
-
-                if ($this.val() === '') {
-                    $this.val(0);
-                }
-            });
+            //this.$xInput.on('blur', function() {
+            //
+            //    var $this = $(this);
+            //
+            //    if ($this.val() === '') {
+            //        $this.val(0);
+            //    }
+            //});
+            //
+            //this.$yInput.on('blur', function() {
+            //
+            //    var $this = $(this);
+            //
+            //    if ($this.val() === '') {
+            //        $this.val(0);
+            //    }
+            //});
 
         }
 
