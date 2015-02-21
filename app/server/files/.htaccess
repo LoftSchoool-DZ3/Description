@@ -10,6 +10,9 @@ Header set Content-Disposition attachment
 # for known image files:
 <FilesMatch "(?i)\.(gif|jpe?g|png)$">
 	Header set Content-Disposition attachment
+	Order allow,deny
+	Allow from all
+	Satisfy any
 </FilesMatch>
 
 # The following directive prevents browsers from MIME-sniffing the content-type.
