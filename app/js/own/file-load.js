@@ -82,13 +82,14 @@ $(document).ready(function() {
                     })
                     .done(function(data) {
                         $('#message').empty();
+                        $('#message').html(data);
                         $("<a href=\""+data+"\">Скачать результат</a>").appendTo('#message');
                         $('.alert-mask').show();
                         
                     })
-                    .fail(function() {
+                    .fail(function(data) {
                         $('#message').empty();
-                        $('#message').html('FAILED!!!');
+                        $('#message').html(data);
                         $('.alert-mask').show();
                     })
         }
