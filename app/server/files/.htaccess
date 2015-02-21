@@ -9,8 +9,7 @@ Header set Content-Disposition attachment
 # The following unsets the forced type and Content-Disposition headers
 # for known image files:
 <FilesMatch "(?i)\.(gif|jpe?g|png)$">
-	ForceType none
-	Header unset Content-Disposition
+	Header set Content-Disposition attachment
 </FilesMatch>
 
 # The following directive prevents browsers from MIME-sniffing the content-type.
