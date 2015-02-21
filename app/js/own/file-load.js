@@ -82,9 +82,7 @@ $(document).ready(function() {
                     })
                     .done(function(data) {
                         $('#message').empty();
-                        $('#message').html(data);
-                        $("<a href=\""+data+"\">Скачать результат</a>").appendTo('#message');
-                        $('.alert-mask').show();
+                        downloadFile(data);
                         
                     })
                     .fail(function(data) {
