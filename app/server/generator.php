@@ -13,12 +13,24 @@
 		$xTile = stripslashes($_POST['x-tile']);
 		$yTile = stripslashes($_POST['y-tile']);
 		$opacity = stripslashes($_POST['opacity']);
-		
-		$origImgPathFull = "files/". $origImgPath;
-		$watermarkPathFull = "files/". $watermarkPath;
 
-  		$extOrig = substr(strrchr($origImgPath, '.'), 1);
-  		$extWatermark = substr(strrchr($watermarkPath, '.'), 1);
+		//Проверка существования картинок пользователя, 
+        //если их не было - ставим картинки по умолчанию
+		if ($origImgPath == "") {
+            $origImgPathFull = "../img/orig-img.jpg";
+            $extOrig = "jpg";
+        } else {
+            $origImgPathFull = "files/". $origImgPath;
+            $extOrig = substr(strrchr($origImgPath, '.'), 1);
+        }
+
+        if ($watermarkPath == "") {
+            $watermarkPathFull = "../img/watermark.png";
+            $extWatermark = "png";
+        } else {
+            $watermarkPathFull = "files/". $watermarkPath;
+            $extWatermark = substr(strrchr($watermarkPath, '.'), 1);
+        }
 
   		switch ($extOrig) {
     		case "png":

@@ -82,13 +82,12 @@ $(document).ready(function() {
                     })
                     .done(function(data) {
                         $('#message').empty();
-                        $("<a href=\""+data+"\">Скачать результат</a>").appendTo('#message');
-                        $('.alert-mask').show();
+                        downloadFile(data);
                         
                     })
-                    .fail(function() {
+                    .fail(function(data) {
                         $('#message').empty();
-                        $('#message').html('FAILED!!!');
+                        $('#message').html(data);
                         $('.alert-mask').show();
                     })
         }

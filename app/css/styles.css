@@ -714,6 +714,7 @@ li {
     top: 0;
     left: 0;
     z-index: 50;
+
     opacity: .3;
 }
 @media only screen and (max-height: 750px) {
@@ -775,6 +776,7 @@ li {
     display: inline-block;
     width: 23px;
     padding-bottom: 2px;
+    padding-left: 1px;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
@@ -839,4 +841,9 @@ li {
     position: relative;
 
     display: inline-block;
+    overflow: hidden;
+}
+
+input:focus {
+    outline: none;
 }
