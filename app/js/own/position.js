@@ -245,26 +245,29 @@ jQuery(document).ready(function($) {
                 this.$yInput
             ];
 
-            console.log(app.beforeClickValue);
-
             for (var index in inputsArray) {
+
                 inputsArray[index].on('blur', function() {
+
                     var $this = $(this);
 
                     if ($this.val() === '' && app.beforeClickValue === 0) {
+
                         $this.val(0);
+
                     } else if (app.beforeClickValue){
+
                         $this.val(app.beforeClickValue);
+
                     }
-                    console.log(app.beforeClickValue);
 
                 });
 
                 inputsArray[index].on('click', function() {
+
                     var $this = $(this);
-                        //oldValue = parseInt( $this.val(), 10 );
+
                     app.beforeClickValue = parseInt( $this.val(), 10 );
-                    console.log($this);
 
                     $this.val('');
 
@@ -286,23 +289,6 @@ jQuery(document).ready(function($) {
                 app.beforeClickValue = $this.val();
             });
 
-            //this.$xInput.on('blur', function() {
-            //
-            //    var $this = $(this);
-            //
-            //    if ($this.val() === '') {
-            //        $this.val(0);
-            //    }
-            //});
-            //
-            //this.$yInput.on('blur', function() {
-            //
-            //    var $this = $(this);
-            //
-            //    if ($this.val() === '') {
-            //        $this.val(0);
-            //    }
-            //});
 
         }
 
