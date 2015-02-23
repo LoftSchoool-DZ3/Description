@@ -32,6 +32,8 @@ jQuery(document).ready(function($) {
             this.$centerBottom = $('.center-bottom');
             this.$rightBottom = $('.right-bottom');
 
+            this.beforeClickValue;
+
             this.setUpEventListeners();
             this.drag();
             this.inputPositioningSetup();
@@ -242,35 +244,46 @@ jQuery(document).ready(function($) {
                 this.$xInput,
                 this.$yInput
             ];
-                //oldValue;
+
+            console.log(app.beforeClickValue);
 
             for (var index in inputsArray) {
                 inputsArray[index].on('blur', function() {
                     var $this = $(this);
 
-                    if ($this.val() === '') {
+                    if ($this.val() === '' && app.beforeClickValue === 0) {
                         $this.val(0);
+                    } else if (app.beforeClickValue){
+                        $this.val(app.beforeClickValue);
                     }
+                    console.log(app.beforeClickValue);
 
                 });
 
-                //inputsArray[index].on('click', function() {
-                //    var $this = $(this),
-                //        oldValue = parseInt( $this.val(), 10 );
-                //
-                //
-                //    $this.val('');
+                inputsArray[index].on('click', function() {
+                    var $this = $(this);
+                        //oldValue = parseInt( $this.val(), 10 );
+                    app.beforeClickValue = parseInt( $this.val(), 10 );
+                    console.log($this);
 
-                //});
+                    $this.val('');
+
+                });
 
             }
 
             this.$xInput.on('keyup', function() {
+                var $this = $(this);
+
                 borderValues('left', this);
+                app.beforeClickValue = $this.val();
             });
 
             this.$yInput.on('keyup', function() {
+                var $this = $(this);
+
                 borderValues('top', this);
+                app.beforeClickValue = $this.val();
             });
 
             //this.$xInput.on('blur', function() {
