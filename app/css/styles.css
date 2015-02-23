@@ -840,3 +840,7 @@ li {
 
     display: inline-block;
 }
+
+.bad-value {
+    background-color: #f97e76;
+}
