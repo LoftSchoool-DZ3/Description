@@ -205,6 +205,9 @@ jQuery(document).ready(function($) {
             app.$xInput.val(horizontal);
             app.$yInput.val(vertical);
 
+            app.$xInput.removeClass('bad-value');
+            app.$yInput.removeClass('bad-value');
+
 
         },
         drag: function() {
