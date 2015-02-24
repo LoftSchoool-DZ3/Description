@@ -29,12 +29,12 @@ $(document).ready(function() {
 		var maxWatermarkTop = origHeight - watermarkHeight;
 	
 
-		if (this.value > maxWatermarkLeft && this.id == "x-one") {
+		if (this.value > maxWatermarkLeft && this.id == "x-one" && maxWatermarkLeft > 0) {
 			this.value = maxWatermarkLeft;
 			$('.layer.v-watermark').css('left', maxWatermarkLeft);
 		}
 
-		if (this.value > maxWatermarkTop && this.id == "y-one") {
+		if (this.value > maxWatermarkTop && this.id == "y-one" && maxWatermarkTop > 0) {
 			this.value = maxWatermarkTop;
 			$('.layer.v-watermark').css('top', maxWatermarkTop);
 		}
