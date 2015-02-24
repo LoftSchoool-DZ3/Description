@@ -847,3 +847,7 @@ li {
 input:focus {
     outline: none;
 }
+
+.position h3 {
+    cursor: default;
+}
