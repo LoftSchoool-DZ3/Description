@@ -53,9 +53,6 @@ jQuery(document).ready(function($) {
                 $( ".slider" ).slider( "option", "value", 30);
                 app.$watermark.css('opacity',.3);
                 app.$opacityValue.val(.3);
-                app.$xInput.removeClass('bad-value');
-                app.$yInput.removeClass('bad-value');
-
             });
 
             // move horizontal
@@ -130,11 +127,11 @@ jQuery(document).ready(function($) {
 
             if ( direction === 'horizontal' ) {
                 if ( increase && horizontalPosition < app.borderPointHorizontal ) {
-                    app.$xInput.removeClass('bad-value');
+                    
                     horizontalPosition++;
 
                 } else if ( !increase && horizontalPosition > 0 ){
-                    app.$xInput.removeClass('bad-value');
+                    
                     horizontalPosition--;
                 }
                 app.$watermark.css('left', horizontalPosition+'px');
@@ -143,11 +140,11 @@ jQuery(document).ready(function($) {
 
             if ( direction === 'vertical' ) {
                 if ( increase && verticalPosition < app.borderPointVertical ) {
-                    app.$yInput.removeClass('bad-value');
+
                     verticalPosition++;
 
                 } else if ( !increase && verticalPosition > 0 ) {
-                    app.$yInput.removeClass('bad-value');
+                    
                     verticalPosition--;
 
                 }
@@ -204,11 +201,6 @@ jQuery(document).ready(function($) {
 
             app.$xInput.val(horizontal);
             app.$yInput.val(vertical);
-
-            app.$xInput.removeClass('bad-value');
-            app.$yInput.removeClass('bad-value');
-
-
         },
         drag: function() {
 
@@ -221,9 +213,6 @@ jQuery(document).ready(function($) {
 
                     app.$xInput.val(left);
                     app.$yInput.val(top);
-
-                    app.$xInput.removeClass('bad-value');
-                    app.$yInput.removeClass('bad-value');
                 }
             });
 
@@ -235,24 +224,14 @@ jQuery(document).ready(function($) {
                 var elem = $(elem);
 
                 if (direction === 'left' && elem.val() < app.borderPointHorizontal && elem.val() >= 0) {
-
-                    elem.removeClass('bad-value');
+				
                     app.$watermark.css(direction, elem.val() + 'px');
-
-                } else if (direction === 'left') {
-
-                    elem.addClass('bad-value');
 
                 }
 
                 if (direction === 'top' && elem.val() < app.borderPointVertical && elem.val() >= 0) {
 
-                    elem.removeClass('bad-value');
                     app.$watermark.css(direction, elem.val() + 'px');
-
-                } else if (direction === 'top') {
-
-                    elem.addClass('bad-value');
 
                 }
 

@@ -837,10 +837,5 @@ li {
 
 .layer.v-orig-img {
     position: relative;
-
     display: inline-block;
-}
-
-.bad-value {
-    background-color: #f97e76;
 }
