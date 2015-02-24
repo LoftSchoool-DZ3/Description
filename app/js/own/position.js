@@ -34,12 +34,16 @@ jQuery(document).ready(function($) {
 
             this.beforeClickValue;
 
+            this.borderPointHorizontal = app.$layout.width() - app.$watermark.width();
+            this.borderPointVertical = app.$layout.height() - app.$watermark.height();
+
             this.setUpEventListeners();
             this.drag();
             this.inputPositioningSetup();
 
         },
         setUpEventListeners: function() {
+
             // reset button
             this.$resetBtn.on('click', function() {
 
@@ -49,23 +53,22 @@ jQuery(document).ready(function($) {
                 $( ".slider" ).slider( "option", "value", 30);
                 app.$watermark.css('opacity',.3);
                 app.$opacityValue.val(.3);
-
             });
 
-            // move X
+            // move horizontal
             this.$incrementXbtn.on('click', function() {
-                app.moveX(true);
+                app.moveWatermark('horizontal', true);
             });
             this.$decrementXbtn.on('click', function() {
-                app.moveX(false);
+                app.moveWatermark('horizontal', false);
             });
 
-            // move Y
+            // move vertical
             this.$incrementYbtn.on('click', function() {
-               app.moveY(true);
+               app.moveWatermark('vertical', true);
             });
             this.$decrementYbtn.on('click', function() {
-                app.moveY(false);
+                app.moveWatermark('vertical', false);
             });
 
             // position cells
@@ -115,47 +118,41 @@ jQuery(document).ready(function($) {
             });
 
         },
-        moveX: function(param) {
+        moveWatermark: function(direction, increase) {
+            // increase - bool; if true - increasing, if false - decreasing positions
+            // direction - string; options: 'horizontal', 'vertical'
 
-            var xPos = parseInt(app.$watermark.css('left'), 10),
-                borderPoint = app.$layout.width() - app.$watermark.width();
+            var horizontalPosition = parseInt(app.$watermark.css('left'), 10),
+                verticalPosition = parseInt(app.$watermark.css('top'), 10);
 
-            if (param) {
-                if (xPos < borderPoint) {
-                    xPos++;
+            if ( direction === 'horizontal' ) {
+                if ( increase && horizontalPosition < app.borderPointHorizontal ) {
+                    
+                    horizontalPosition++;
+
+                } else if ( !increase && horizontalPosition > 0 ){
+                    
+                    horizontalPosition--;
                 }
-
-            } else {
-                if (xPos > 0) {
-                    xPos--;
-                }
+                app.$watermark.css('left', horizontalPosition+'px');
+                app.$xInput.val(horizontalPosition);
             }
 
-            app.$watermark.css('left', xPos+'px');
-            app.$xInput.val(xPos);
+            if ( direction === 'vertical' ) {
+                if ( increase && verticalPosition < app.borderPointVertical ) {
 
-        },
-        moveY: function(param) {
-            app.$watermark.css({
-                marginTop: 0
-            });
+                    verticalPosition++;
 
-            var yPos = parseInt(app.$watermark.css('top'), 10),
-                borderPoint = app.$layout.height() - app.$watermark.height();
+                } else if ( !increase && verticalPosition > 0 ) {
+                    
+                    verticalPosition--;
 
-            if(param) {
-                if (yPos < borderPoint) {
-                    yPos++;
                 }
-            } else {
-                if (yPos > 0) {
-                    yPos--
-                }
+
+                app.$watermark.css('top', verticalPosition+'px');
+                app.$yInput.val(verticalPosition);
 
             }
-
-            app.$watermark.css('top', yPos+'px');
-            app.$yInput.val(yPos);
 
         },
         setActiveCell: function(elem) {
@@ -204,8 +201,6 @@ jQuery(document).ready(function($) {
 
             app.$xInput.val(horizontal);
             app.$yInput.val(vertical);
-
-
         },
         drag: function() {
 
@@ -226,16 +221,18 @@ jQuery(document).ready(function($) {
 
             var borderValues = function (direction, elem) {
 
-                var borderPointX = app.$layout.width() - app.$watermark.width(),
-                    borderPointY = app.$layout.height() - app.$watermark.height(),
-                    elem = $(elem);
+                var elem = $(elem);
 
-                if (direction === 'left' && elem.val() < borderPointX && elem.val() >= 0) {
+                if (direction === 'left' && elem.val() < app.borderPointHorizontal && elem.val() >= 0) {
+				
                     app.$watermark.css(direction, elem.val() + 'px');
+
                 }
 
-                if (direction === 'top' && elem.val() < borderPointY && elem.val() >= 0) {
+                if (direction === 'top' && elem.val() < app.borderPointVertical && elem.val() >= 0) {
+
                     app.$watermark.css(direction, elem.val() + 'px');
+
                 }
 
             };
@@ -280,6 +277,7 @@ jQuery(document).ready(function($) {
 
                 borderValues('left', this);
                 app.beforeClickValue = $this.val();
+
             });
 
             this.$yInput.on('keyup', function() {
@@ -287,8 +285,8 @@ jQuery(document).ready(function($) {
 
                 borderValues('top', this);
                 app.beforeClickValue = $this.val();
-            });
 
+            });
 
         }
 
