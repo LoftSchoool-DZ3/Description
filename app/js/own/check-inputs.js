@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	$('.field-number').on('blur', function() {
-		console.log(this.value);
 		if (this.value == "") {
 			this.value = 0;
 		}
