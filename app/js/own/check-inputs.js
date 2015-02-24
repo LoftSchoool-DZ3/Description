@@ -1,8 +1,11 @@
 $(document).ready(function() {
-	$('.field-number').on('focusout', function() {
+	$('.field-number').on('blur', function() {
+		console.log(this.value);
 		if (this.value == "") {
 			this.value = 0;
+		}
 
+		if (this.value == 0) {
 			if (this.id == "x-one") {
 				$('.layer.v-watermark').css('left', '0');
 			}
