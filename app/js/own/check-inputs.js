@@ -2,6 +2,13 @@ $(document).ready(function() {
 	$('.field-number').on('focusout', function() {
 		if (this.value == "") {
 			this.value = 0;
+
+			if (this.id == "x-one") {
+				$('.layer.v-watermark').css('left', '0');
+			}
+			if (this.id == "y-one") {
+				$('.layer.v-watermark').css('top', '0');
+			}
 		}
 	});
 
