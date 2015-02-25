@@ -56,13 +56,13 @@
 				<form id="form" method="post" action="server/generator.php">
 				<div class="settings-before">
 					<div class="set load-imgs">
-						<label>Исходное изображение</label>
+						<label class="label-orig-img">Исходное изображение</label>
 						<div class="input-wrapper-file wr-orig-img">
 							<span id="orig-img-name">Загрузите изображение</span>
 							<label for="orig-img"><div class="img load"></div></label>
 							<input id="orig-img" class="field-file fileupload" type="file" accept="image/*" name="files[]">
 						</div>
-						<label>Водяной знак</label>
+						<label class="label-watermark">Водяной знак</label>
 						<div class="input-wrapper-file wr-watermark">
 							<span id="watermark-name">Загрузите изображение</span>
 							<label for="watermark"><div class="img load"></div></label>
@@ -215,6 +215,7 @@
 	<script type="text/javascript" src="js/own/position.js"></script>
     <script type="text/javascript" src="js/vendor/download.min.js"></script>
     <script type="text/javascript" src="js/own/check-inputs.js"></script>
+    <script type="text/javascript" src="js/own/disable.js"></script>
     <!-- endbuild -->
 </body>
 </html>

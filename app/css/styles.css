@@ -850,3 +850,9 @@ input:focus {
 .position h3 {
     cursor: default;
 }
+
+#submit:disabled,
+label.disabled,
+.wr-watermark.disabled {
+    opacity: 0.4;
+}
