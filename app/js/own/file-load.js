@@ -40,8 +40,8 @@ $(document).ready(function() {
             $('.fileupload').fileupload({
                 url: url,
                 dataType: 'json',
-                disableImageResize: /Android(?!.*Chrome)|Opera/
-                    .test(window.navigator && navigator.userAgent),
+                disableImageResize:false,
+                acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
                 imageMaxWidth: 651,
                 imageMaxHeight: 534,
                 done: function() {
@@ -55,11 +55,20 @@ $(document).ready(function() {
         //Отображение загруженного файла в области просмотра
         showFile: function(n) {
             var value = $('#' + n + '-name').text(),
-                viewImgClass = '.v-' + n,
-                path = 'server\/files\/' + value;
+                viewImgClass = '.v-' + n;
+                
             hiddenInputId = $('#' + n + '-srvpath');
+            if (value.split(".").pop() === "gif") {
 
-            $(viewImgClass).children().attr('src', path);
+                valy = value.replace('.gif', '.png');
+                console.log(valy);
+                value = valy;
+                
+            } else{};
+            
+                path = 'server\/files\/' + value;
+
+            $(viewImgClass).children('img').attr('src', path);
             $(hiddenInputId).attr('value', value);
 
 
