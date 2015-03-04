@@ -6,8 +6,7 @@ $(function () {
     $('.fileupload').fileupload({
         url: url,
         dataType: 'json',
-        disableImageResize: /Android(?!.*Chrome)|Opera/
-        .test(window.navigator && navigator.userAgent),
+        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
         imageMaxWidth: 651,
         imageMaxHeight: 534,
         done: function () {},
