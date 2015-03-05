@@ -1,5 +1,5 @@
 <?php 
-	
+	error_reporting(E_ALL);
 	$post = (!empty($_POST)) ? true : false;
 
 	if($post){
@@ -38,25 +38,35 @@
         		imagealphablending($im, true);
 				imagesavealpha($im, true);
         		break;
-    		case "jpeg" or "jpg":
-        		$im = imagecreatefromjpeg($origImgPathFull);
-        		break;
-    		case "gif":
+        		case "gif":
     			$im = imagecreatefromgif($origImgPathFull);
+				$tempimage = imagecreatetruecolor(imagesx($im),imagesy($im));
+	        	imagecopy($tempimage, $im, 0, 0, 0, 0,imagesx($im), imagesx($im));
+        		$im = $tempimage;
+    			
+        		break;
+    		case "jpeg":
+    		case "jpg":
+        		$im = imagecreatefromjpeg($origImgPathFull);
         		break;
 		};
 		switch ($extWatermark) {
     		case "png":
         		$stamp = imagecreatefrompng($watermarkPathFull);
-        		imagealphablending($stamp, false);
-				imagesavealpha($stamp, true);
+
 				break;
-    		case "jpeg" or "jpg":
-        		$stamp = imagecreatefromjpeg($watermarkPathFull);
-        		break;
     		case "gif":
     			$stamp = imagecreatefromgif($watermarkPathFull);
+				$tempimage = imagecreatetruecolor(imagesx($stamp),imagesy($stamp));
+	        	imagecopy($tempimage, $stamp, 0, 0, 0, 0,imagesx($stamp), imagesx($stamp));
+        		$stamp = $tempimage;
+    			
         		break;
+    		case "jpg":
+    		case "jpeg":
+        		$stamp = imagecreatefromjpeg($watermarkPathFull);
+        		break;
+    		
 		};
 		
 		
@@ -132,12 +142,9 @@ function imagecopymerge_alpha($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, 
 		$resultFilePath = "server/" . $newFileName;
 
 		// Сохранение изображений в файл и освобождение памяти
-		header('Content-type: image/png');
+		//header('Content-type: image/png');
 		imagepng($im, $newFileName);
 		imagedestroy($im);
-
-	
-
 
  	 
 	echo json_encode($resultFilePath);

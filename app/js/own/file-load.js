@@ -58,13 +58,13 @@ $(document).ready(function() {
                 viewImgClass = '.v-' + n;
                 
             hiddenInputId = $('#' + n + '-srvpath');
-            if (value.split(".").pop() === "gif") {
+           //if (value.split(".").pop() === "gif") {
 
-                valy = value.replace('.gif', '.png');
-                console.log(valy);
-                value = valy;
-                
-            } else{};
+           //    valy = value.replace('.gif', '.png');
+           //    console.log(valy);
+           //    value = valy;
+           //    
+           //} else{};
             
                 path = 'server\/files\/' + value;
 
@@ -90,7 +90,7 @@ $(document).ready(function() {
                         data: str
                     })
                     .done(function(data) {
-                        $('#message').empty();
+                        
                         downloadFile(data);
                         
                     })
